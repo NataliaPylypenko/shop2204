@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>TZ_2</title>
+    <meta content="" name="description"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/media.css"/>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="shop">
+        <div class="category filter">
+            <!-- filterList -->
+        </div>
+
+        <div class="gallery">
+            <!-- catalogList -->
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="buyModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <!-- buyPopup -->
+    </div>
+
+</div>
+
+<script type="text/html" id='buyPopup'>
+
+    <div class="popup_container">
+        <div class="header">
+            <h4 class="title"><%= product.name %></h4>
+            <span class="close">&times;</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="main">
+            <div class="left">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+
+            <div class="right">
+                <form>
+                    <div class="form-group">
+                        <label for="memory">Память</label>
+                        <br>
+                        <select id="memory">
+                            <% _.each(product.params.memory,function(item){ %>
+                                <option value="<%= item %>"><%= item %> Gb</option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Цвет</label>
+                        <br>
+                        <select id="color">
+                            <% _.each(product.params.color,function(item){ %>
+                             <option value="<%= item %>"><%= item %> </option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Количество</label>
+                        <br>
+                        <select id="number">
+                            <% _.each(_.range(1, (product.params.max_count+1)) ,function(item){ %>
+                                <option value="<%= item %>"><%= item %> </option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="buy">
+                    <p class="price">
+                        $ <%= parseInt(product.price) %> <sup><%= product.price.toFixed(2).toString().substr(-2,2) %></sup>
+                    </p>
+                    <button type="button" class="btn cancel">Купить</button>
+                </div>
+
+                <a href="#">
+                    <p class="name">Посмотреть в магазине</p>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+</script>
+
+<script type="text/html" id='filterList'>
+    <form>
+        <% _.each(filter,function(item,key,list){ %>
+        <p>
+            <input
+                name="catalogFilter"
+                <% if (item.active) { %>checked<% } %>
+                type="checkbox"
+                data-id="<%= item.id %>"
+                id="category_<%= key %>" >
+            <label for="category_<%= key %>">
+                <%= item.name %>
+            </label>
+        </p>
+        <% }); %>
+    </form>
+</script>
+
+
+<script type="text/html" id='catalogList'>
+
+    <% _.each(catalog,function(item,key,list){ %>
+    <div class="img-box">
+        <img src="<%= item.image %>" alt="IPhone5">
+        <p class="name">
+            <%= item.name %>
+        </p>
+        <p class="price">
+            $ <%= parseInt(item.price) %> <sup><%= item.price.toFixed(2).toString().substr(-2,2) %></sup>
+        </p>
+
+        <a href="#" data-id="<%= item.id %>" class="btn buy-btn">Купить</a>
+
+    </div>
+    <% }); %>
+
+</script>
+
+
+<script src="libs/jquery/jquery-3.4.1.min.js"></script>
+<script src="libs/underscore-min.js"></script>
+<script src="js/common.js"></script>
+
+</body>
+</html>

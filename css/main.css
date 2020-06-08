@@ -1,0 +1,289 @@
+body {
+    position: relative;
+    margin: 0;
+}
+
+body .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrapper {
+    max-width: 1820px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.shop {
+    background-color: #d3d3d3;
+    padding: 0 10%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+
+.category {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    padding: 100px 0 0;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+.gallery {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 30px;
+
+    padding: 30px 0 0;
+}
+
+.img-box {
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.img-box img {
+    margin: 30px auto 20px;
+}
+
+p.name {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    color: #222222;
+    margin: 0 auto;
+}
+
+p.price {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 36px;
+    color: #ff7e00;
+    margin: 18px auto 35px;
+}
+
+.btn {
+    font-family: 'RobotoMedium';
+    font-size: 14px;
+    line-height: 14px;
+    color: #fff;
+    background-color: #ff7e00;
+    border-radius: 4px;
+    padding: 12px 26px;
+    display: inline-block;
+    transform: translateY(15px);
+    text-decoration: underline;
+}
+
+.img-box .btn.buy-btn{
+    opacity: 0;
+}
+
+.img-box:hover .btn {
+    cursor: pointer;
+    display: inline-block;
+    transition: all 300ms ease-in-out;
+    opacity: 1;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/* POPUP */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    border-radius: 5px;
+    z-index: 9;
+}
+
+.popup_container {
+    padding: 10px 0;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+.popup_container .header {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popup_container .header h4 {
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    line-height: 20px;
+    color: #222222;
+    margin: 10px;
+}
+
+.popup_container .header div {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.popup_container .line {
+    border-top: 1px solid #d3d3d3;
+}
+
+.popup_container .main {
+    margin: 30px 50px 0;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto;
+}
+
+.popup_container .main .left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.popup_container .main .right {
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.popup_container .main .form-group {
+    padding-right: 22px;
+    padding-bottom: 17px;
+    width: 120px;
+}
+
+.popup_container .main .form-group select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    font-family: 'RobotoMedium';
+    font-size: 16px;
+    line-height: 18px;
+    color: #222222;
+}
+
+.popup_container .main form {
+    font-family: 'RobotoMedium';
+    font-size: 16px;
+    line-height: 18px;
+    color: #222222;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.popup_container .main .buy {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.popup_container .main .buy .price {
+    margin: 0 10px 15px 0;
+    color: #222222;
+}
+
+.popup_container .main .buy button {
+    margin: 6px 22px 15px 0;
+}
+
+.popup_container .main .right p.name {
+    color: #ff7e00;
+}
+
+.popup_container .main .right a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
